@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\backendController;
 use App\Http\Controllers\Api\EstudianteController;
-
+use App\Http\Controllers\Api\CursoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
