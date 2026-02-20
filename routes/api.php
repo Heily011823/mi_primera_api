@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\backendController;
 use App\Http\Controllers\Api\EstudianteController;
 use App\Http\Controllers\Api\CursoController;
 use App\Http\Controllers\Api\ProgramaAcademicoController;
+use App\Http\Controllers\Api\NotaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -85,3 +86,10 @@ Route::get('/programas/{id}', [ProgramaAcademicoController::class, 'consultarPro
 Route::post('/programas', [ProgramaAcademicoController::class, 'crearPrograma']);
 Route::put('/programas/{id}', [ProgramaAcademicoController::class, 'actualizarPrograma']);
 Route::delete('/programas/{id}', [ProgramaAcademicoController::class, 'eliminarPrograma']);
+
+//Notas
+Route::get('/notas', [NotaController::class, 'listarNotas']);
+Route::get('/notas/{id}', [NotaController::class, 'consultarNota']);
+Route::post('/notas', [NotaController::class, 'crearNota']);
+Route::put('/notas/{id}', [NotaController::class, 'actualizarNota']);
+Route::delete('/notas/{id}', [NotaController::class, 'eliminarNota']);
