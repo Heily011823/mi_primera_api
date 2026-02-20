@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\backendController;
 use App\Http\Controllers\Api\EstudianteController;
 use App\Http\Controllers\Api\CursoController;
+use App\Http\Controllers\Api\ProgramaAcademicoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -70,10 +71,17 @@ Route::patch('/estudiantes/{id}', [EstudianteController::class, 'actualizarEstud
 Route::delete('/estudiantes/{id}', [EstudianteController::class, 'eliminarEstudiante']);
 
 
-//Route::apiResource('cursos', CursoController::class);
+//Cursos
 
 Route::get('/cursos', [CursoController::class, 'listarCursos']);
 Route::get('/cursos/{id}', [CursoController::class, 'consultarCurso']);
 Route::post('/cursos', [CursoController::class, 'crearCurso']);
 Route::put('/cursos/{id}', [CursoController::class, 'actualizarCurso']);
 Route::delete('/cursos/{id}', [CursoController::class, 'eliminarCurso']);
+
+//programas
+Route::get('/programas', [ProgramaAcademicoController::class, 'listarProgramas']);
+Route::get('/programas/{id}', [ProgramaAcademicoController::class, 'consultarPrograma']);
+Route::post('/programas', [ProgramaAcademicoController::class, 'crearPrograma']);
+Route::put('/programas/{id}', [ProgramaAcademicoController::class, 'actualizarPrograma']);
+Route::delete('/programas/{id}', [ProgramaAcademicoController::class, 'eliminarPrograma']);
