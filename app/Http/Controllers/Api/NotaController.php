@@ -33,14 +33,21 @@ class NotaController extends Controller
     ];
     }
 
-    private function getNotas(){
-        if (!Storage::exists($this->archivoNotas)) {
-            Storage::put($this->archivoNotas, json_encode([], JSON_PRETTY_PRINT));
-        }
-
-        $contenido = Storage::get($this->archivoNotas);
-        return json_decode($contenido, true) ?? [];
+ private function getNotas(){
+    if (!Storage::exists($this->archivoNotas)) {
+        $this->guardarNotas($this->getDatosIniciales());
+        return $this->getDatosIniciales();
     }
+
+    $contenido = Storage::get($this->archivoNotas);
+    $notas = json_decode($contenido, true);
+
+    if ($notas === null) {
+        return $this->getDatosIniciales();
+    }
+
+    return $notas;
+}
 
     // Guardar notas
     private function guardarNotas($notas){
